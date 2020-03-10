@@ -18,6 +18,6 @@ cat /etc/passwd | grep -i sysd #check if user is created
 var=$(cat /etc/sudoer.tmp | grep -i sysd | awk '{ print $3 }')
 vareql="NOPASSWD:ALL"
 if [ $var != $vareql ]; then
-  echo "Error sudoer file not properly configured .. .. ."
+  echo "Error sudoer file is not properly configured .. .. ."
   exit
 fi
