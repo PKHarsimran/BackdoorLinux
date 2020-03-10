@@ -19,12 +19,8 @@ cat /etc/passwd | grep -i sysd #check if user is created
 var=$(cat /etc/sudoer.tmp | grep -i sysd | awk '{ print $3 }')
 vareql="NOPASSWD:ALL"
 if [ $var != $vareql ]; then
-<<<<<<< HEAD
   echo "Error sudoer file not properly configured .. .. ."
   echo " fix it ! :<"
-=======
-  echo "Error sudoer file is not properly configured .. .. ."
->>>>>>> 137c4dee2a70c576226de007c911cd0ad02228b3
   exit
 else
   echo " check complete :) "
@@ -49,7 +45,13 @@ systemctl restart ssh.service
 echo -e "/nServices restarted "
 TARGET_IP=$(hostname -I)
 echo -e "/n SSH : ssh root@$TARGET_IP -p 2222"
-######################################################################3
-#######################################################################
-#######################################################################]
-########################################################################
+echo -e "
+
+   _____  ____   ______ ___   ______
+  / ___/ / __ \ / ____//   | /_  __/
+  \__ \ / / / // /    / /| |  / /
+ ___/ // /_/ // /___ / ___ | / /
+/____/ \____/ \____//_/  |_|/_/
+
+
+"
