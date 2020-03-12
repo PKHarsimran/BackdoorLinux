@@ -9,7 +9,7 @@ TARGET_IP=192.168.7.141
 ###########################
 sudo apt-get install sshpass -y
 sshpass -p 'password' ssh $username@$TARGET_IP -p 22
-if [ $(whoami) != 'pkvirus' ]; then
+if [ $(whoami) != $username ]; then
     echo "PWNED ! SSH is good "
 
 else
