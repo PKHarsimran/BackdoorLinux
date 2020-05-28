@@ -1,6 +1,4 @@
 # BackdoorLinux
-working on creating a script for backdooring linux system
-
 Instructions
 Get started by logging into the VM as root.
 
