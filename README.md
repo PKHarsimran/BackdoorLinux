@@ -2,7 +2,6 @@
 Instructions
 Get started by logging into the VM as root.
 
-Shadow People
 In this step, you'll create a "secret" user named sysd. Anyone examining /etc/passwd will assume this to be a service account, but in fact, you'll be using it to reconnect to the machine for further exploitation.
 Make sure to give your sysd user:
 
