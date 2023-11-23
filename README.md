@@ -1,7 +1,15 @@
-ssh-backdoor
+# Security Testing Scripts - Back door linux via ssh 
 
-This script is a backdoor for SSH connections. It changes the default SSH port and starts a listener on a different port.
-Prerequisites
+This repository contains two Bash scripts designed for security testing in controlled environments. These scripts should be used only with proper authorization and in compliance with all applicable laws and ethical guidelines.Prerequisites
+
+## Scripts
+
+1. **backdoor.sh**: This script performs various operations like creating a user, modifying SSH configurations, and setting up a `socat` listener.
+
+2. **sessionCreator.sh**: This script attempts to establish SSH and `socat` connections to a specified target machine to test access and connectivity.
+
+
+#### How to Run
 
     The script should be run as a root user.
     You need to have socat installed on the target machine. If not, the script will automatically install it.
